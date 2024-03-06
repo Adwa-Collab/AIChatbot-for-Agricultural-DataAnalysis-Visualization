@@ -4,7 +4,7 @@ x-redash-service: &redash-service
   build:
     context: .
     args:
-      skip_frontend_build: "true"  # set to empty string to build
+      skip_frontend_build: "true" # set to empty string to build
   volumes:
     - .:/app
   env_file:
@@ -54,7 +54,7 @@ services:
   postgres:
     image: pgautoupgrade/pgautoupgrade:15-alpine3.8
     ports:
-      - "15432:5432"
+      - "5434:5432"
     # The following turns the DB into less durable, but gains significant performance improvements for the tests run (x3
     # improvement on my personal machine). We should consider moving this into a dedicated Docker Compose configuration for
     # tests.
@@ -62,6 +62,9 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_HOST_AUTH_METHOD: "trust"
+      POSTGRES_DB: agri_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
   email:
     image: maildev/maildev
     ports:
