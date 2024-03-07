@@ -7,7 +7,7 @@ rpath = os.path.abspath('..')
 if rpath not in sys.path:
     sys.path.insert(0, rpath)
 
-from postgres.postgresql_connection import create_database_engine
+from postgresql_connection import create_database_engine
 
 engine = create_database_engine()
 
