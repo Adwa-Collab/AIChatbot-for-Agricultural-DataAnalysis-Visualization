@@ -4,15 +4,14 @@ from redash.handlers.base import (
 )
 import requests
 
-
+base_url = "https://08ba-102-213-69-219.ngrok-free.app"
 class ChatResource(BaseResource):
     def post(self):
         try:
             value = request.get_json()
             question = value.get('question')
 
-            question_answer = requests.post("https://116f-185-107-56-154.ngrok-free.app/api/chat", json={"message": question})
-
+            question_answer = requests.post(f"{base_url}/api/chat", json={"message": question})
 
             if question_answer.status_code == 200:
                 api_response = question_answer.json()
