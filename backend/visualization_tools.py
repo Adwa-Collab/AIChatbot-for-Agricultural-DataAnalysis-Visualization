@@ -12,14 +12,14 @@ from utils import get_postgres_data, get_postgres_df
 
 api_key = os.environ.get('REDASH_API')
 api_url = "http://localhost:5001"
-your_data_source_id = 1
+your_data_source_id = 2
 
 Redash = RedashAPIClient(api_key, api_url)
 
 @tool
-def create_redash_query(data_source_id: int, query: str, name: str, description: str="", options: dict=None):
+def create_redash_query(query: str, name: str, description: str="", options: dict=None):
     """Create a query in Redash and return the response json"""
-    response = Redash.create_query(data_source_id, name, query, description, options)
+    response = Redash.create_query(your_data_source_id, name, query, description, options)
     return response.json()
 
 @tool
