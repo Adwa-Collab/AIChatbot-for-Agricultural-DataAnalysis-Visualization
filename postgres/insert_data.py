@@ -7,8 +7,8 @@ if rpath not in sys.path:
 
 import pandas as pd
 from sqlalchemy import create_engine
-from postgres.postgresql_connection import create_database_engine
-from postgres.tables.agriculture_table import create_agriculture_table
+from postgresql_connection import create_database_engine
+from tables.agriculture_table import create_agriculture_table
 
 
 def map_dataframe_to_agriculture_table(engine, dataframe):

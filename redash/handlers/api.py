@@ -92,6 +92,9 @@ from redash.handlers.visualizations import (
     VisualizationListResource,
     VisualizationResource,
 )
+from redash.handlers.chat import (
+       ChatResource
+)
 from redash.handlers.widgets import WidgetListResource, WidgetResource
 from redash.utils import json_dumps
 
@@ -103,7 +106,7 @@ class ApiExt(Api):
 
 
 api = ApiExt()
-
+api.add_org_resource(ChatResource, "/api/chat", endpoint="chat")
 
 @api.representation("application/json")
 def json_representation(data, code, headers=None):

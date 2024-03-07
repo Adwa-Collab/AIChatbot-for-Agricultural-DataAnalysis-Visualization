@@ -5,13 +5,12 @@ if rpath not in sys.path:
     sys.path.insert(0, rpath)
 
 from sqlalchemy import create_engine, Column, Integer, String, Float, MetaData, Table
-from postgres.postgresql_connection import create_database_engine
-
+from postgresql_connection import create_database_engine
 def create_agriculture_table(engine):
     metadata = MetaData()
 
     agriculture_table = Table(
-        'agriculture_data',
+        'agriculture_table',
         metadata,
         Column('district_name', String),
         Column('soil_color', String),

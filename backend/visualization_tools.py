@@ -1,12 +1,16 @@
+import os
 from redashAPI import RedashAPIClient
 from langchain.agents import tool
 from typing import Optional
 from pydantic import BaseModel, Field
 from typing import List, Tuple
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
 
 from utils import get_postgres_data, get_postgres_df
 
-api_key = '7uqzrON4MKNA1Zk7D4a7y9abgHZJ7PFB1WWQLsyZ'
+api_key = os.environ.get('REDASH_API')
 api_url = "http://localhost:5001"
 your_data_source_id = 1
 
